@@ -4,6 +4,7 @@ using API.Entities;
 using API.Extensions;
 using API.Interface;
 using AutoMapper;
+using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
