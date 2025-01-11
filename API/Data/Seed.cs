@@ -1,4 +1,4 @@
-﻿using System.Security.Cryptography;
+﻿﻿using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using API.Entities;
@@ -33,6 +33,7 @@ public class Seed
             await roleManager.CreateAsync(role);
         }
 
+            
         foreach (var user in users)
         {
             user.UserName = user.UserName!.ToLower();
@@ -40,7 +41,7 @@ public class Seed
             await userManager.AddToRoleAsync(user, "Member");
         }
 
-
+        
         var admin = new AppUser
         {
             UserName = "admin",

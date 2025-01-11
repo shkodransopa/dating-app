@@ -1,7 +1,7 @@
 using API.Controllers;
 using API.DTOs;
 using API.Extensions;
-using API.Interfaces;
+using API.Entities;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +21,7 @@ public class MessagesController(IMessageRepository messageRepository, IUserRepos
         var recipient = await userRepository.GetUserByUsernameAsync(createMessageDto.RecipientUsername);
          if (recipient == null || sender == null || sender.UserName == null || recipient.UserName == null) 
             return BadRequest("Cannot send message at this time");
+            
         var message = new Message
         {
             Sender = sender,

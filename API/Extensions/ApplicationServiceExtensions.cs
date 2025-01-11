@@ -1,6 +1,6 @@
 ﻿using API.Data;
+using API.Entities;
 using API.Interface;
-using API.Interfaces;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +25,8 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IPhotoService, PhotoService>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+        services.AddSignalR();
+        services.AddSingleton<PresenceTracker>();
 
         return services;
     }
